@@ -1,6 +1,6 @@
 {
   "name": "@edison1105/pr",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "packageManager": "pnpm@7.4.0",
   "description": "Check if your PRs are in conflict.",
   "author": "Edison1105 <daiwei521@126.com>",
