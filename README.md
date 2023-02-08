@@ -10,4 +10,5 @@ npm i -g @edison1105/pr
 - `pr -t <token>` set the token of GitHub. [New personal access token](https://github.com/settings/tokens/new?scopes=repo)
 - `pr -s <owner/repo> [-u <username>]` list the PRs which has conflicts
 
-
+## Screenshot
+<img src="./screenshot.png"/>
