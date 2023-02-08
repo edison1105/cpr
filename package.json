@@ -1,0 +1,54 @@
+{
+  "name": "@edison1105/pr",
+  "version": "0.0.1",
+  "packageManager": "pnpm@7.4.0",
+  "description": "Check if your PR has conflicts",
+  "author": "Edison1105 <daiwei521@126.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/edison1105/pr#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edison1105/pr.git"
+  },
+  "bugs": {
+    "url": "https://github.com/edison1105/pr/issues"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "pr": "bin/pr.mjs"
+  },
+  "files": [
+    "dist",
+    "bin"
+  ],
+  "scripts": {
+    "prepublishOnly": "npm run build",
+    "dev": "esno src/commands/pr.ts",
+    "build": "unbuild",
+    "stub": "unbuild --stub",
+    "release": "bumpp && npm publish",
+    "lint": "eslint .",
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "@octokit/core": "^4.2.0",
+    "@types/node": "^18.11.18",
+    "bumpp": "^8.2.1",
+    "eslint": "^8.32.0",
+    "esno": "^0.16.3",
+    "fast-glob": "^3.2.12",
+    "kleur": "^4.1.5",
+    "typescript": "^4.9.4",
+    "unbuild": "^1.1.1",
+    "vitest": "^0.27.2"
+  }
+}
