@@ -1,6 +1,6 @@
 # pr
 
-Check if your PR has conflicts
+Check if your PRs are in conflict.
 
 ```bash
 npm i -g @edison1105/pr

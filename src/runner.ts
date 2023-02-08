@@ -23,9 +23,9 @@ export async function run(fn: Runner, args: string[]) {
   if (args.length === 1 && ['-h', '--help'].includes(args[0])) {
     const dash = c.dim('-')
     console.log(c.green(c.bold('@edison1105/pr')) + c.dim(` Check if your PR has conflicts v${version}\n`))
-    console.log(`pr   ${dash}  -u <username> set the author name of PRs`)
-    console.log(`pr   ${dash}  -t <token> set the token of GitHub`)
-    console.log(`pr   ${dash}  -s <owner/repo> [-u <username>] list the PRs which has conflicts`)
+    console.log(`pr -u <username> set the author name of PRs`)
+    console.log(`pr -t <token> set the token of GitHub`)
+    console.log(`pr -s <owner/repo> [-u <username>] list the PRs which has conflicts`)
     console.log(c.yellow('\ncheck https://github.com/edison1105/pr for more documentation.'))
     return
   }
