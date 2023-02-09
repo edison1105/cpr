@@ -6,7 +6,7 @@ import { dump, load } from '../storage'
 let storage
 let octokit: Octokit
 
-runCli(async (args) => {
+runCli(async args => {
   storage = await load()
   if (args[0] === '-t') {
     storage.token = args[1]
@@ -28,14 +28,13 @@ runCli(async (args) => {
   }
 
   octokit = new Octokit({
-    auth: storage.token,
+    auth: storage.token
   })
 
   if (args[0] === '-s') {
     const [owner, repo] = args[1].split('/')
     let username = storage.username!
-    if (args[2] === '-u' && args[3])
-      username = args[3]
+    if (args[2] === '-u' && args[3]) username = args[3]
 
     const prList = await searchPR(owner, repo, username)
 
@@ -53,7 +52,7 @@ runCli(async (args) => {
       if (!info.mergeable) {
         conflictPRs.push({
           title: pr.title,
-          url: pr.html_url,
+          url: pr.html_url
         })
       }
     }
@@ -72,7 +71,7 @@ async function searchPR(owner: string, repo: string, username: string) {
   try {
     const { data } = await octokit.request('GET /search/issues', {
       q: `repo:${owner}/${repo} is:pr is:open author:${username}`,
-      per_page: 100,
+      per_page: 100
     })
     return data.items
   } catch (error) {
@@ -83,11 +82,14 @@ async function searchPR(owner: string, repo: string, username: string) {
 
 async function getPR(owner: string, repo: string, pull_number: number) {
   try {
-    const { data } = await octokit.request('GET /repos/{owner}/{repo}/pulls/{pull_number}', {
-      owner,
-      repo,
-      pull_number,
-    })
+    const { data } = await octokit.request(
+      'GET /repos/{owner}/{repo}/pulls/{pull_number}',
+      {
+        owner,
+        repo,
+        pull_number
+      }
+    )
     return data
   } catch (error) {
     return { mergeable: true }

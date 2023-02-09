@@ -8,8 +8,7 @@ export async function runCli(fn: Runner) {
   const args = process.argv.slice(2).filter(Boolean)
   try {
     await run(fn, args)
-  }
-  catch (error) {
+  } catch (error) {
     process.exit(1)
   }
 }
@@ -22,11 +21,20 @@ export async function run(fn: Runner, args: string[]) {
 
   if (args.length === 1 && ['-h', '--help'].includes(args[0])) {
     const dash = c.dim('-')
-    console.log(c.green(c.bold('@edison1105/cpr')) + c.dim(` Check if your cpr has conflicts v${version}\n`))
+    console.log(
+      c.green(c.bold('@edison1105/cpr')) +
+        c.dim(` Check if your cpr has conflicts v${version}\n`)
+    )
     console.log(`cpr -u <username> set the author name of PRs`)
     console.log(`cpr -t <token> set the token of GitHub`)
-    console.log(`cpr -s <owner/repo> [-u <username>] list the PRs which has conflicts`)
-    console.log(c.yellow('\ncheck https://github.com/edison1105/cpr for more documentation.'))
+    console.log(
+      `cpr -s <owner/repo> [-u <username>] list the PRs which has conflicts`
+    )
+    console.log(
+      c.yellow(
+        '\ncheck https://github.com/edison1105/cpr for more documentation.'
+      )
+    )
     return
   }
 
