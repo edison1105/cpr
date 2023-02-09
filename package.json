@@ -32,7 +32,7 @@
   ],
   "scripts": {
     "prepublishOnly": "npm run build",
-    "dev": "esno src/commands/cpr.ts -s vuejs/core -u edison1105",
+    "dev": "esno src/commands/cpr.ts",
     "build": "unbuild",
     "stub": "unbuild --stub",
     "release": "bumpp && npm publish --access=public",
