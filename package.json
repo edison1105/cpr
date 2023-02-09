@@ -1,17 +1,17 @@
 {
-  "name": "@edison1105/pr",
+  "name": "@edison1105/cpr",
   "version": "0.0.4",
   "packageManager": "pnpm@7.4.0",
   "description": "Check if your PRs are in conflict.",
   "author": "Edison1105 <daiwei521@126.com>",
   "license": "MIT",
-  "homepage": "https://github.com/edison1105/pr#readme",
+  "homepage": "https://github.com/edison1105/cpr#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/edison1105/pr.git"
+    "url": "git+https://github.com/edison1105/cpr.git"
   },
   "bugs": {
-    "url": "https://github.com/edison1105/pr/issues"
+    "url": "https://github.com/edison1105/cpr/issues"
   },
   "exports": {
     ".": {
@@ -24,7 +24,7 @@
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "bin": {
-    "pr": "bin/pr.mjs"
+    "cpr": "bin/cpr.mjs"
   },
   "files": [
     "dist",
@@ -32,7 +32,7 @@
   ],
   "scripts": {
     "prepublishOnly": "npm run build",
-    "dev": "esno src/commands/pr.ts",
+    "dev": "esno src/commands/cpr.ts -s vuejs/core -u edison1105",
     "build": "unbuild",
     "stub": "unbuild --stub",
     "release": "bumpp && npm publish --access=public",
@@ -53,6 +53,8 @@
   },
   "keywords": [
     "pr",
+    "check pr",
+    "conflict",
     "pull",
     "request"
   ]

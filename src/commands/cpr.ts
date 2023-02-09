@@ -23,7 +23,7 @@ runCli(async (args) => {
   }
 
   if (!storage.token) {
-    console.error('use `pr -t <TOKEN>` to set your token')
+    console.error('use `cpr -t <TOKEN>` to set your token')
     process.exit(1)
   }
 

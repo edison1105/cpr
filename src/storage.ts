@@ -10,7 +10,7 @@ export interface Storage {
 
 let storage: Storage | undefined
 
-const storageDir = resolve(tmpdir(), 'edison-pr')
+const storageDir = resolve(tmpdir(), 'edison-cpr')
 const storagePath = resolve(storageDir, '_storage.json')
 
 export async function load(fn?: (storage: Storage) => Promise<boolean> | boolean) {
