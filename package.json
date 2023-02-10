@@ -39,7 +39,7 @@
     "format": "prettier --write --cache --parser typescript \"**/*.[tj]s?(x)\""
   },
   "simple-git-hooks": {
-    "pre-commit": "pnpm lint-staged"
+    "pre-commit": "npx lint-staged"
   },
   "lint-staged": {
     "*.{js,json}": [

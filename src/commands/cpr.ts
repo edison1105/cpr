@@ -69,7 +69,8 @@ runCli(async args => {
     const p = new Table({
       columns: [
 { name: "title", alignment: "left" },
-    { name: "url", alignment: "left" }
+        { name: "url", alignment: "left" }
+    
       ]
     });
     conflictPRs.forEach((item) => {
