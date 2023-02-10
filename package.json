@@ -1,6 +1,6 @@
 {
   "name": "@edison1105/cpr",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "packageManager": "pnpm@7.4.0",
   "description": "Check if your PRs are in conflict.",
   "author": "Edison1105 <daiwei521@126.com>",
@@ -36,8 +36,7 @@
     "build": "unbuild",
     "stub": "unbuild --stub",
     "release": "bumpp && npm publish --access=public",
-    "format": "prettier --write --cache --parser typescript \"**/*.[tj]s?(x)\"",
-    "postinstall": "simple-git-hooks"
+    "format": "prettier --write --cache --parser typescript \"**/*.[tj]s?(x)\""
   },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged"
