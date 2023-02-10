@@ -49,7 +49,7 @@ runCli(async args => {
     const conflictPRs = []
     for (let i = 0; i < prList.length; i++) {
       const pr = prList[i]
-      console.log(c.yellow('[Checking...] => '), pr.title)
+      console.log(c.yellow('[Checking...]'), pr.title)
       const info = await getPR(owner, repo, pr.number)
       if (!info.mergeable) {
         conflictPRs.push({
@@ -64,7 +64,7 @@ runCli(async args => {
       return
     }
 
-    console.log(c.red(`${conflictPRs.length} conflict PRs found`))
+    console.log(c.bgRed(`${conflictPRs.length} conflict PRs found`))
 
     const p = new Table({
       columns: [
