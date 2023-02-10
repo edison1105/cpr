@@ -36,7 +36,6 @@
     "build": "unbuild",
     "stub": "unbuild --stub",
     "release": "bumpp && npm publish --access=public",
-    "lint": "eslint .",
     "format": "prettier --write --cache --parser typescript \"**/*.[tj]s?(x)\""
   },
   "simple-git-hooks": {
@@ -47,7 +46,6 @@
       "prettier --write"
     ],
     "*.ts?(x)": [
-      "eslint",
       "prettier --parser=typescript --write"
     ]
   },
