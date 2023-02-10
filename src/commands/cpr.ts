@@ -2,6 +2,8 @@
 import { Octokit } from '@octokit/core'
 import { runCli } from '../runner'
 import { dump, load } from '../storage'
+import { Table } from 'console-table-printer'
+import c from 'kleur'
 
 let storage
 let octokit: Octokit
@@ -11,19 +13,19 @@ runCli(async args => {
   if (args[0] === '-t') {
     storage.token = args[1]
     await dump()
-    console.log('token set successfully')
+    console.log(c.green('token set successfully'))
     return
   }
 
   if (args[0] === '-u') {
     storage.username = args[1]
     await dump()
-    console.log('username set successfully')
+    console.log(c.green('username set successfully'))
     return
   }
 
   if (!storage.token) {
-    console.error('use `cpr -t <TOKEN>` to set your token')
+    console.log(c.red('use `cpr -t <TOKEN>` to set your token'))
     process.exit(1)
   }
 
@@ -39,15 +41,15 @@ runCli(async args => {
     const prList = await searchPR(owner, repo, username)
 
     if (!prList.length) {
-      console.log('No PRs found')
+      console.log(c.green('No PRs found'))
       return
     }
 
-    console.log(`${prList.length} PRs found`)
+    console.log(c.green(`${prList.length} PRs found`))
     const conflictPRs = []
     for (let i = 0; i < prList.length; i++) {
       const pr = prList[i]
-      console.log('[Checking...] => ', pr.title)
+      console.log(c.yellow('[Checking...] => '), pr.title)
       const info = await getPR(owner, repo, pr.number)
       if (!info.mergeable) {
         conflictPRs.push({
@@ -58,12 +60,22 @@ runCli(async args => {
     }
 
     if (!conflictPRs.length) {
-      console.log('No conflict PRs found')
+      console.log(c.green('No conflict PRs found'))
       return
     }
 
-    console.log(`${conflictPRs.length} conflict PRs found`)
-    console.table(conflictPRs)
+    console.log(c.red(`${conflictPRs.length} conflict PRs found`))
+
+    const p = new Table({
+      columns: [
+{ name: "title", alignment: "left" },
+        { name: "url", alignment: "left" }
+      ]
+    });
+    conflictPRs.forEach((item) => {
+      p.addRow(item)
+    })
+    p.printTable()
   }
 })
 

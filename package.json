@@ -55,6 +55,7 @@
     "@octokit/core": "^4.2.0",
     "@types/node": "^18.11.18",
     "bumpp": "^8.2.1",
+    "console-table-printer": "^2.11.1",
     "eslint": "^8.32.0",
     "esno": "^0.16.3",
     "fast-glob": "^3.2.12",
