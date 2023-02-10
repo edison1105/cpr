@@ -36,7 +36,8 @@
     "build": "unbuild",
     "stub": "unbuild --stub",
     "release": "bumpp && npm publish --access=public",
-    "format": "prettier --write --cache --parser typescript \"**/*.[tj]s?(x)\""
+    "format": "prettier --write --cache --parser typescript \"**/*.[tj]s?(x)\"",
+    "postinstall": "npx simple-git-hooks"
   },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged"

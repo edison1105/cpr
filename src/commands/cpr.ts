@@ -68,7 +68,8 @@ runCli(async args => {
 
     const p = new Table({
       columns: [
-{ name: "title", alignment: "left" },
+        { name: "title", alignment: "left" },
+
         { name: "url", alignment: "left" }
     
       ]
